@@ -15,7 +15,7 @@ password : 123456
 
 ## Database
 
-Nama : Msql
+Nama : Mysql
 Versi : 10.4.28
 
 ## Php
