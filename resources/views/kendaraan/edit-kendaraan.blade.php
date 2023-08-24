@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Edit Kendaraan') }}</div>
 
                 <div class="card-body">
                     <form action="{{route('kendaraan.update',$data->id)}}" method="post">
@@ -39,7 +39,7 @@
                             <label>Riwayat Pemakaian</label>
                             <input type="text" name="riwayat_pemakaian" class="form-control" value="{{$data->riwayat_pemakaian}}">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
 

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('INput Kendaraan') }}</div>
 
                 <div class="card-body">
                     <form action="{{route('kendaraan.store')}}" method="post">
@@ -38,7 +38,7 @@
                             <label>Riwayat Pemakaian</label>
                             <input type="text" name="riwayat_pemakaian" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
 

@@ -3,35 +3,34 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
+            <div class="mb-3">
+                <a href="{{route('pemesanan.create')}}" class="btn btn-primary">Tambah</a>
+                <a href="{{route('pemesanan.excel')}}" class="btn btn-success">Export</a>
+            </div>
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">{{ __('Pemesanan') }}</div>
                 <div class="card-body">
                     <form>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">Pemesan</th>
                                     <th scope="col">Kendaraan</th>
+                                    <th scope="col">Jenis Kendaraan</th>
+                                    <th scope="col">Nomor Plat</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data as $k)
+                                @foreach($pemesanan as $p)
                                 <tr>
-                                    <th scope="row">{{$k->id}}</th>
-                                    <td>{{$k->nama}}</td>
-                                    <td>{{$k->jenis_kendaraan}}</td>
-                                    <td>
-                                        <form action="{{ route('kendaraan.destroy',$k->id) }}" method="post">
-                                            <a class="btn btn-primary" href="{{ route('kendaraan.edit',$k->id) }}">Edit</a>
-                                            @csrf
-                                           
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
+                                    <td>{{$p->pemesan}}</td>
+                                    <td>{{$p->kendaraan->nama}}</td>
+                                    <td>{{$p->kendaraan->jenis_kendaraan}}</td>
+                                    <td>{{$p->kendaraan->nomor_plat}}</td>
+                                    <td>{{$p->status}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

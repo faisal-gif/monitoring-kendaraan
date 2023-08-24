@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('pemesanan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pemesan_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('pemesan');
             $table->bigInteger('kendaraan_id')->unsigned();
             $table->foreign('kendaraan_id')->references('id')->on('kendaraan');
-            $table->string('status');
-            $table->string('tingkat_persetujuan');
+            $table->enum('status', ['ditolak', 'menunggu','disetujui']);
+            $table->tinyInteger('tingkat_persetujuan');
             $table->timestamps();
         });
     }

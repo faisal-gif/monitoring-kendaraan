@@ -3,44 +3,47 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Buat Pemesanan') }}</div>
 
                 <div class="card-body">
-                    <form action="{{route('kendaraan.store')}}" method="post">
+                    <form action="{{route('pemesanan.store')}}" class="col-8" method="post">
                         @csrf
                         <div class="form-group">
                             <label>Pemesan</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="pemesan">
                         </div>
                         <div class="form-group">
                             <label>Kendaraan</label>
-                            <select name="" id="" class="form-control">
+                            <select name="kendaraan" id="" class="form-control">
                                 @foreach($kendaraan as $k)
                                 <option value="{{$k->id}}">{{$k->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+
+                        <div class="form-group mt-3">
                             <label>Pihak yang Menyetujui</label>
+                        </div>
+                        <div class="form-group">
                             <label>Pihak 1</label>
-                            <select name="" id="" class="form-control">
+                            <select name="pihak1" id="" class="form-control">
                                 @foreach($user as $u)
-                                <option value=""></option>
+                                <option value="{{$u->id}}">{{$u->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Pihak 2</label>
-                            <select name="" id="" class="form-control">
+                            <select name="pihak2" id="" class="form-control">
                                 @foreach($user as $u)
-                                <option value=""></option>
+                                <option value="{{$u->id}}">{{$u->name}}</option>
                                 @endforeach
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
 

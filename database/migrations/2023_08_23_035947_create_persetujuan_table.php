@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreign('pemesanan_id')->references('id')->on('pemesanan');
             $table->bigInteger('approver_id')->unsigned();
             $table->foreign('approver_id')->references('id')->on('users');
-            $table->string('status');
-            $table->timestamp('approved_at');
+            $table->enum('status', ['ditolak','diajukan', 'menunggu','disetujui']);
             $table->timestamps();
         });
     }
